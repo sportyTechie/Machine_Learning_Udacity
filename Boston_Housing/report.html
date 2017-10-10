@@ -12109,7 +12109,7 @@ tend to decrease the prices of the house in the neighbourhood as people will not
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>Answer:</strong></p>
+<p>Since the model has a high R^2 score, I would say model successfully captured the target variables.</p>
 
 </div>
 </div>
@@ -12186,9 +12186,8 @@ tend to decrease the prices of the house in the neighbourhood as people will not
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Benifit is to train the model just right. If we use entire set for training then we will be over fitting. 
-If we use entire set for testing then we will not be training model at all and it will be generalized.
-So to traing the model right and then measure the performance by testing gives us the chance to create best fiting model.</p>
+<p>Benifit is to train the model just right and then measure the performance of model.
+If we use the entire dataset for training the model then we will not be left with any data to test our model's performance and check for overfitting.</p>
 
 </div>
 </div>
@@ -13276,6 +13275,7 @@ Think about the pros and cons of adding more training points based on if the tra
 <p>Choosing Max Depth 1:</p>
 <p>As more training points are added the score falls. The score falls rapidly till 50 then it falls gradually, becoming almost flat after 350 points.</p>
 <p>Testing score incresases when more training points are added. The score increases rapidly till 50 then it increases marginally. It has a slight drop after 200 points which picks up after 300. After 350 it is almost constant.</p>
+<p>Having more training points is not going to benifit the model since both training and validation curves are almost constant.</p>
 
 </div>
 </div>
@@ -13751,9 +13751,9 @@ TNCwpGeMMSZoWNIzxhgTNCzpGWOMCRr/D1n4lJ2QGpjbAAAAAElFTkSuQmCC
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <ul>
-<li><p>Max depth of 1 : Model suffers from high bias. Visual cue of constant variance between training and validation score justifies my conclusion.</p>
+<li><p>Max depth of 1 : Model suffers from high bias. Visual cue of constant variance between training and validation score justifies my conclusion. We can also wee that the training and testing score are also low.</p>
 </li>
-<li><p>Max depth of 10: Model suffers from high variance. Visual cue of increased variance between testing score and validation score justifiens my conclusion.</p>
+<li><p>Max depth of 10: Model suffers from high variance. Visual cue of increased variance between testing score and validation score justifies my conclusion. We can also see that training score getting higher and testing score getting lower.</p>
 </li>
 </ul>
 
@@ -13780,7 +13780,7 @@ TNCwpGeMMSZoWNIzxhgTNCzpGWOMCRr/D1n4lJ2QGpjbAAAAAElFTkSuQmCC
 <ul>
 <li><p>Max. depth of 3 will give model that best generalizes unseen data.</p>
 </li>
-<li><p>At max. depth 3 the variance between testing and validation scores is less also the validation score is almost the  high.</p>
+<li><p>At max. depth 3 the variance between testing and validation scores is less also the validation score is almost the  highest.</p>
 </li>
 </ul>
 
@@ -13815,6 +13815,7 @@ TNCwpGeMMSZoWNIzxhgTNCzpGWOMCRr/D1n4lJ2QGpjbAAAAAElFTkSuQmCC
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>*Grid search is an approach to parameter tuning that will methodically build and evaluate a model for each combination of algorithm parameters specified in a grid.</p>
+<p>Explanation: If we have less number of parameters it is easy for us to try out what is the best possible combination of the parameters that gives best performance of our model. As the number of parameters increases it becomes very difficult for us to try out all the permutations and combinations of the parameters and find out the best possible combination, this is what Grid Search automates for us.</p>
 <p>*It can find the best possible combination of algorithm parameters which can lead to best best optimized algorithm.</p>
 
 </div>
@@ -13840,8 +13841,9 @@ TNCwpGeMMSZoWNIzxhgTNCzpGWOMCRr/D1n4lJ2QGpjbAAAAAElFTkSuQmCC
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>*The k-fold cross-validation training technique is the process of dividing your data points into smaller number of k bins. Testing then occurs on one of the k bins while training occurs with the other k-1 bins. This process, testing and training, occurs k times across all bins for testing and training.</p>
+<p>*The k-fold cross-validation training technique is the process of dividing your data points into smaller number of k bins. Testing then occurs on one of the k bins while training occurs with the other k-1 bins. This process, testing and training, occurs k times across all bins for testing and training. The k results from the folds can then be averaged (or otherwise combined) to produce a single estimation.</p>
 <p>*Grid search is the process to automate the parameter selection and tuning for best perfomance, When we use k-fold cross validation along with grid search, we consider a wider range of data points to find the tuned parameters thus increasing accuracy and performance of our model.</p>
+<p>The advantage of using more splits is that it matters less how the data gets divided. Every data point gets to be in a test set exactly once, and gets to be in a training set k-1 times. The variance of the resulting estimate is reduced as k is increased.</p>
 
 </div>
 </div>
@@ -13982,7 +13984,10 @@ For the <code>fit_model</code> function in the code cell below, you will need to
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Parameter 'max_depth' is 4</p>
+<ul>
+<li>Parameter 'max_depth' is 4.</li>
+<li>The answer is close to what I had guessed for question 6, I was thinking answer for question 6 to be either 3 or 4.</li>
+</ul>
 
 </div>
 </div>
@@ -14078,8 +14083,15 @@ Predicted selling price for Client 3&#39;s home: $955,500.00
 <ul>
 <li>Predicted selling price for Client 1's home: $411,096.00</li>
 <li>Predicted selling price for Client 2's home: $219,961.54</li>
-<li>Predicted selling price for Client 3's home: $955,500.00</li>
+<li><p>Predicted selling price for Client 3's home: $955,500.00</p>
+</li>
+<li><p>The predicted prices seem reasonable to me:</p>
+</li>
 </ul>
+<p>Client 1: Since it is a 5 bed room house with relatively low neighborhood poverty level and about intermediate student to teacher ratio the price of the house seems reasonable.</p>
+<p>Client 2: With high neighborhood poverty level and high student to teacher ratio the price of this house is
+negatively impacted and is thus almost half of client 1.</p>
+<p>Client 3: With number of rooms 1.5 times more than client 1 and very low neighborhood poverty level and very good student to teacher ratio the price of this house seems justified.</p>
 
 </div>
 </div>
